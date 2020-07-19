@@ -35,3 +35,26 @@ class Stack {
         return this.size === 0;
     }
 }
+
+function correctBrackets(str, options = {
+    '(': ')',
+    '[': ']',
+    '{': '}',
+}) {
+    const bracketStack = new Stack();
+    const brackets = options;
+
+    for (const s of str) {
+        if (brackets[s]) {
+            bracketStack.push(s);
+            continue;
+        }
+        if (brackets[bracketStack.pick()] === s) {
+            bracketStack.pop();
+        }
+    }
+    return bracketStack.isEmpty;
+}
+
+const userInput = prompt('Enter your text:');
+alert(correctBrackets(userInput) ? 'Your brackets are correct' : 'Your brackets are wrong');

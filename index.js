@@ -36,6 +36,12 @@ class Stack {
     }
 }
 
+/**
+ *
+ * @param {String} str - check this string
+ * @param {Object} options - pairs of brackets
+ * @returns {boolean}
+ */
 function correctBrackets(str, options = {
     '(': ')',
     '[': ']',
